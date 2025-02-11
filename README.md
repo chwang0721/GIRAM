@@ -1,5 +1,5 @@
 # GIRAM
-Code for “Model-Agnostic Continual Learning for Next POI Recommendations"
+Code for “Model-Agnostic Continual Learning for Next POI Recommendation"
 ### Requirements
 - torch
 - torch_geometric
