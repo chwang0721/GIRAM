@@ -8,7 +8,7 @@ import numpy as np
 from configs.config import args
 
 
-# Extract POI category name for Gowalla dataset
+# Extract POI category name for CA dataset
 def extract_name(json_str):
     try:
         parsed = ast.literal_eval(json_str)
@@ -26,7 +26,7 @@ def read_dataset(file_path, dataset):
         df['Time'] = df['UTCTime'] + df['TimeOffset'].apply(lambda x: timedelta(hours=x / 60))
         grid_size = 0.03
 
-    elif dataset == 'Gowalla':
+    elif dataset == 'CA':
         df = pd.read_csv(file_path, sep=',')
         df['Time'] = df['UTCTime'].apply(lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%SZ'))
         df['PoiCatName'] = df['PoiCategoryId'].apply(extract_name)
@@ -133,8 +133,8 @@ if __name__ == '__main__':
         file_path = 'data/NYC/dataset_TSMC2014_NYC.txt'
     elif dataset == 'TKY':
         file_path = 'data/TKY/dataset_TSMC2014_TKY.txt'
-    elif dataset == 'Gowalla':
-        file_path = 'data/Gowalla/dataset_gowalla_ca_ne.csv'
+    elif dataset == 'CA':
+        file_path = 'data/CA/dataset_gowalla_ca_ne.csv'
 
     df = read_dataset(file_path, dataset)
     df = do_filter(df)
