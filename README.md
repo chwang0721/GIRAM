@@ -1,21 +1,38 @@
 # GIRAM
-Code for “Model-Agnostic Continual Learning for Next POI Recommendation"
+
+Source code for **"Model-Agnostic Continual Learning for Next POI Recommendation"**.
+
+Datasets and derived POI categories are available in the `./data` directory.
+
 ### Requirements
-- torch
-- torch_geometric
-- torchsde
-- networkx
+
+Make sure the following Python packages are installed:
+
+- `torch`
+- `torch_geometric`
+- `torchsde`
+- `networkx`
+- `pandas`
+- `numpy`
+
 ### Preprocessing
-Run
-``
+To prepare the datasets, run the preprocessing script:
+```
 sh pre.sh
-``
+```
+
 ### Pretraining
+To train the base model on the initial data block (datasets: NYC, TKY, CA), run:
 ```
 python main_Flashback.py --mode pretrain --dataset NYC
 ```
+
 ### Continual Updating
+To perform continual learning with different update strategies, run:
 ```
 python main_Flashback.py --mode memory --dataset NYC
 ```
-Here, `mode` is the method for continual learning, `memory` denotes the GIRAM model, `finetune` and `retrain` are baselines.
+Available modes:
+- `memory`: Applies the proposed **GIRAM** method for continual learning.
+- `finetune`: Incrementally fine-tunes the model using only new data.
+- `retrain`: Retrains the model from scratch using all accumulated data.
