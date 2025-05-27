@@ -33,6 +33,6 @@ To perform continual learning with different update strategies, run:
 python main_Flashback.py --mode memory --dataset NYC
 ```
 Available modes:
-- `memory`: Applies the proposed **GIRAM** method for continual learning.
+- `memory`: Applies the proposed GIRAM method for continual learning.
 - `finetune`: Incrementally fine-tunes the model using only new data.
 - `retrain`: Retrains the model from scratch using all accumulated data.
