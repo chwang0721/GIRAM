@@ -36,3 +36,9 @@ Available modes:
 - `memory`: Applies the proposed GIRAM method for continual learning.
 - `finetune`: Incrementally fine-tunes the model using only new data.
 - `retrain`: Retrains the model from scratch using all accumulated data.
+
+### Acknowledgement
+Our code is based on the following works:
+- Flashback: https://github.com/eXascaleInfolab/Flashback_code
+- GETNext: https://github.com/songyangme/GETNext
+- DiffPOI: https://github.com/Yifang-Qin/Diff-POI
