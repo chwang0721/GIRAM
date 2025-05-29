@@ -30,7 +30,7 @@ if __name__ == '__main__':
     elif dataset == 'TKY':
         lambda_s = 100
         memory_size = 100
-    elif dataset == 'Gowalla':
+    elif dataset == 'CA':
         lambda_s = 1000
         memory_size = 20
     lambda_t = 0.1
