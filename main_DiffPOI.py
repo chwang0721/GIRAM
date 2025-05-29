@@ -30,7 +30,7 @@ if __name__ == '__main__':
         memory_size = 100
     elif dataset == 'TKY':
         memory_size = 100
-    elif dataset == 'Gowalla':
+    elif dataset == 'CA':
         memory_size = 20
 
     block_num = 5
