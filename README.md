@@ -1,6 +1,6 @@
 # GIRAM
 
-Source code for **"Model-Agnostic Continual Learning for Next POI Recommendation"**.
+Source code for **"Effcient Model-Agnostic Continual Learning for Next POI Recommendation"**.
 
 Datasets and derived POI categories are available in the `./data` directory.
 
