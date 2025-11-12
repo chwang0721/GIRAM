@@ -214,6 +214,8 @@ class Trainer_Flashback:
         self.model.eval()
         cnt = 0
 
+        average_user_sim = sum(user_similarity_dict.values()) / len(user_similarity_dict)
+
         with torch.no_grad():
             for batch in test_loader:
                 (users, poi_inputs, timestamp_inputs, location_inputs, hour_inputs, weekday_inputs, norm_time_inputs,
@@ -235,9 +237,9 @@ class Trainer_Flashback:
 
                 for i, user in enumerate(users):
                     user = int(user)
-                    user_sim = user_similarity_dict.get(user, 0.5)
+                    user_sim = user_similarity_dict.get(user, average_user_sim)
                     long_term_interest = self.memory.retrieve_memory(user, batch_query_keys[i])
-                    beta = self.beta + (user_sim - 0.5) * 0.5
+                    beta = self.beta + (user_sim - average_user_sim) * 0.5
                     interest[i] = long_term_interest * (1 - beta) + short_term_interest[i] * beta
 
                 outputs = interest

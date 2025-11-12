@@ -219,7 +219,7 @@ class Trainer_GETNext:
 
         train_loader = torch.utils.data.DataLoader(all_keys, batch_size=512, shuffle=True)
 
-        for epoch in range(1):
+        for epoch in range(50):
             for batch in train_loader:
                 optimizer.zero_grad()
                 batch = batch.to(self.device)
@@ -232,6 +232,8 @@ class Trainer_GETNext:
         acc_5, acc_10, acc_20, mrr = 0, 0, 0, 0
         self.model.eval()
         cnt = 0
+
+        average_user_sim = sum(user_similarity_dict.values()) / len(user_similarity_dict)
 
         with torch.no_grad():
             for batch in test_loader:
@@ -253,11 +255,11 @@ class Trainer_GETNext:
 
                 for i, user in enumerate(users):
                     user = int(user)
-                    user_sim = user_similarity_dict.get(user, 0.5)
+                    user_sim = user_similarity_dict.get(user, average_user_sim)
                     query_keys = self.KeyVAE.generate(last_keys[i].unsqueeze(0))
                     query_keys = torch.cat([last_keys[i].unsqueeze(0), query_keys.squeeze(0)], dim=0)
                     long_term_interest = self.memory.retrieve_memory(user, query_keys)
-                    beta = self.beta + (user_sim - 0.5) * 0.5
+                    beta = self.beta + (user_sim - average_user_sim) * 0.5
                     interest[i] = long_term_interest * beta + short_term_interest[i] * (1 - beta)
 
                 outputs = interest
