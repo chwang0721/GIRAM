@@ -1,6 +1,6 @@
 # GIRAM
 
-Source code for **"Efficient Model-Agnostic Continual Learning for Next POI Recommendation"**.
+Source code for ICDE 2026 paper **"Efficient Model-Agnostic Continual Learning for Next POI Recommendation"**.
 
 Datasets and derived POI categories are available in the `./data` directory.
 
