@@ -42,3 +42,16 @@ Our code is based on the following works:
 - Flashback: https://github.com/eXascaleInfolab/Flashback_code
 - GETNext: https://github.com/songyangme/GETNext
 - DiffPOI: https://github.com/Yifang-Qin/Diff-POI
+
+### Citation
+Please kindly cite our work if you find our paper or codes helpful.
+
+Link: https://arxiv.org/abs/2511.08941
+```
+@article{wang2025efficient,
+  title={Efficient Model-Agnostic Continual Learning for Next POI Recommendation},
+  author={Wang, Chenhao and Feng, Shanshan and Chen, Lisi and Li, Fan and Shang, Shuo},
+  journal={arXiv preprint arXiv:2511.08941},
+  year={2025}
+}
+```
